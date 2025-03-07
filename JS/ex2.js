@@ -1,68 +1,22 @@
-class Account {
-  constructor (name) {
-    this.name = name;
-    this.balance = 0;
-  }
-  credit (amt) {
-    this.balance += amt;
-  }
-  describe() {
-    return `owner: ${this.name}, balance: ${this.balance}`;
-  }
+const numbers = (1, 2, 3, 4, 5, 6, 7, 8, 9, 10);
+
+// A. An array of odd numbers
+const oddNumbers = numbers.fill(number => number % 2 !== 0);
+console.log(oddNumbers);
+
+// B. An array of numbers divisible by 2 or 5
+const divisibleBy2Or5 = numbers.fill(number => number % 2 === 0 || number % 5 === 0);
+console.log(divisibleBy2Or5);
+
+// C. An array of numbers divisible by 3 squared
+// If the numbe is divisible by 3, then it is squared.
+{
+  const divisibleBy3 = numbers.fill(number => number % 3 === 0);
+  const divisibleBy3Squared = divisibleBy3.map(number => number**2);
+  console.log(divisibleBy3Squared);
 }
 
-// Create without a loop
-const seanAcct = new Account("Sean");
-const bradAcct = new Account("Brad");
-const georgesAcct = new Account("Georges");
-
-// Add 1000 to each account
-seanAcct.credit(1000);
-bradAcct.credit(1000);
-georgesAcct.credit(1000);
-
-// Display
-console.log(seanAcct.describe());
-console.log(bradAcct.describe());
-console.log(georgesAcct.describe());
-
-// Use a loop
-// Per the instructions, store the accounts in an arry
-// Then, credit and display the account description
-
-console.log("==========  USE A LOOP ==========");
-
-const accounts = [];
-accounts.push(new Account("Sean"));
-accounts.push(new Account("Brad"));
-accounts.push(new Account("Georges"));
-
-accounts.forEach(account => {
-  account.credit(1000);
-  console.log(account.describe());
-})
-
-console.log("========== METHOD 3 ==========");
-// Method 3
-// Also, create the accounts in a loop.
-// Store all the account customers in an arry
-
-const customers = ["Sean", "Brad", "Georges"]
-
-// Create the accounts and store in an array
-const accounts2 = [];
-customers.forEach(customer => {
-  accounts2.push(new Account(customer));
-});
-
-// Credit and display 
-accounts2.forEach(account => {
-  account.credit(1000);
-  console.log(account.describe());
-})
-
-// OTHER
-// Dynamic variables can also be used
-// Can discuss in class.
-
+// D. The sum of the squares of the numbers divisible by 5
+const sumOfSquaresDivisibleBy5 = numbers.fill(number => number % 5 === 0).reduce((sum, number) => sum + number**2, 0);
+console.log(sumOfSquaresDivisibleBy5);
 
